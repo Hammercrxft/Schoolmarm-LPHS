@@ -34,15 +34,16 @@ public class HttpUserInterface {
     private final Schoolmarm marm;
     private final HttpServer server;
 
-    public HttpUserInterface(Schoolmarm la_marm) throws IOException {
+    public HttpUserInterface(Schoolmarm la_marm) throws IOException, URISyntaxException {
         marm = la_marm;
         server = HttpServer.create(new InetSocketAddress(52394), 1);
 
-        //create context handler for each file in resources/webinterface
-        //TODO edit for each accessible file
-        server.createContext("/index.html", createHandlerFor("index.html", marm));
-        server.createContext("/script.js", createHandlerFor("script.js", marm));
-        server.createContext("/style.css", createHandlerFor("style.css", marm));
+        //create context handler for each file listed in accessible_resources.txt
+        Scanner scn = new Scanner(new File(marm.getClass().getResource("/webinterface/accessible_resources.txt").toURI()));
+        while (scn.hasNextLine()){
+            String resource = scn.next();
+            server.createContext("/"+resource, createHandlerFor(resource, marm));
+        }
         server.createContext("/", new RootHandler(marm));
 
         server.start();

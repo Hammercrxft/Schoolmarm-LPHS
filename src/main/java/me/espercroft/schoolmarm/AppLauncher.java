@@ -1,12 +1,7 @@
 package me.espercroft.schoolmarm;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import io.github.imsauce.Frame.Main;
-import java.io.File;
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
+import java.net.URISyntaxException;
 import me.espercroft.schoolmarm.eventhandlers.HTMLGuiPostRequestHandler;
 import me.espercroft.util.HandlerAlreadyBoundException;
 
@@ -15,7 +10,7 @@ public class AppLauncher {
     public static Schoolmarm marm;
     public static HttpUserInterface ui;
 
-    public static void main(String args[]) throws HandlerAlreadyBoundException, IOException {
+    public static void main(String args[]) throws HandlerAlreadyBoundException, IOException, URISyntaxException {
         marm = new Schoolmarm();
         
         marm.getEventService().bind(new HTMLGuiPostRequestHandler());

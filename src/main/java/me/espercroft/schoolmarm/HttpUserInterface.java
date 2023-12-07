@@ -9,9 +9,11 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URISyntaxException;
@@ -44,7 +46,8 @@ public class HttpUserInterface {
             String resource = scn.next();
             server.createContext("/"+resource, createHandlerFor(resource, marm));
         }
-        server.createContext("/", new RootHandler(marm));
+        server.createContext("/", new RootContextHandler(marm));
+        server.createContext("/item_fetch", new ItemFetchContextHandler(marm));
 
         server.start();
     }
@@ -67,7 +70,8 @@ public class HttpUserInterface {
         public void handle(HttpExchange exchange) throws IOException {
             //Headers headers = exchange.getRequestHeaders();
             //Set<Map.Entry<String, List<String>>> entries = headers.entrySet();
-            StringBuilder response = new StringBuilder();
+            StringBuilder response = new StringBuilder(); //for use with error responses
+            InputStream fileStream; //required for transmitting non-text resources
             
             //if this is a POST request, fire an event.
             if (exchange.getRequestMethod().equalsIgnoreCase("post")) {
@@ -86,13 +90,8 @@ public class HttpUserInterface {
             File file = null;
             try {
                 file = new File(marm.getClass().getResource("/webinterface/" + resourcePath).toURI());
+                fileStream = new FileInputStream(file);
                 System.out.println(file);
-                
-                //set response to the contents of file
-                Scanner scn = new Scanner(file);
-                while (scn.hasNextLine()) {
-                    response.append(scn.nextLine());
-                }
             } catch (FileNotFoundException | URISyntaxException ex) {
                 response.delete(0, response.length());
                 response.append("500 Internal Server Error\n\n");
@@ -110,7 +109,7 @@ public class HttpUserInterface {
             //send response to client
             exchange.sendResponseHeaders(200, response.length());
             try (OutputStream os = exchange.getResponseBody()) {
-                os.write(response.toString().getBytes());
+                os.write(fileStream.readAllBytes());
             }
         }
     }

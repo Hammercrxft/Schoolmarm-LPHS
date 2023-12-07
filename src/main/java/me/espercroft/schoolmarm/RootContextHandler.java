@@ -20,11 +20,11 @@ import java.util.Set;
  *
  * @author fille
  */
-public class RootHandler implements HttpHandler {
+public class RootContextHandler implements HttpHandler {
 
     Schoolmarm marm;
 
-    public RootHandler(Schoolmarm lmarm) {
+    public RootContextHandler(Schoolmarm lmarm) {
         marm = lmarm;
     }
 

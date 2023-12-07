@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Your Title</title>
-</head>
-<body>
-
-    <!-- Added form at the top -->
-    <form action="#" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <input type="submit" value="Submit">
-    </form>
-
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <!-- The rest of your Lorem Ipsum text goes here -->
-
-</body>
+    <head>
+        <title>Schoolmarm</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="esperstyle.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="main">
+            <div id="sidebar">
+                <div id="brand">
+                    <div id="logo">
+                        <img id="logo_img" src="lphs_logo.png"/>
+                    </div>
+                    <div id="title">
+                        <p>SCHOOLMARM</p>
+                    </div>
+                </div>
+                <div id="navigation">
+                    <button id="btn_overview" class="active">Overview</button>
+                    <button id="btn_masterlist">Student Indices</button>
+                    <button id="btn_overview">Transferees</button>
+                    <button id="btn_overview">Documents</button>
+                    <button id="btn_overview">Archives </button>
+                    <button id="btn_separator" disabled class="invisible">bug if you see me</button>
+                    <button id="btn_admin">Administrative</button>
+                    <button id="btn_masterlist">Configuration</button>
+                </div>
+            </div>
+            <div id="content"></div>
+        </div>
+        <div id="status">
+            Status
+        </div>
+    </body>
 </html>

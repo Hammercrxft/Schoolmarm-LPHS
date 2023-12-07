@@ -1,3 +1,5 @@
 index.html
 script.js
 style.css
+lphs_logo.png
+esperstyle.css

@@ -12,8 +12,8 @@ public class AppLauncher {
 
     public static void main(String args[]) throws HandlerAlreadyBoundException, IOException, URISyntaxException {
         marm = new Schoolmarm();
-        
         marm.getEventService().bind(new HTMLGuiPostRequestHandler());
+        marm.initialize();
         
         ui = new HttpUserInterface(marm);
         

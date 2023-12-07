@@ -1,1 +1,93 @@
+/* Resetting some default margin and padding for better consistency */
+body, h1, h2, h3, p{
+    margin: 0;
+    padding: 0;
+}
 
+body{
+    font-family: system-ui
+}
+
+#sidebar {
+    width: 12em;
+    position: fixed;
+    float: left; 
+    height: 100%;
+    background-color: #d1f2ff;
+    outline: 1px solid #999999;
+}
+
+#brand {
+    background-color: black;
+    color: #636363;
+    text-align: center;
+    padding-bottom: 1em;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 95%, rgba(255,0,0,0) 100%);
+}
+
+#logo_img {
+    width: 80px;
+    height: 80px;
+}
+
+#title{
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.4em;
+    font-kerning: none;
+    font-weight: 1600;
+}
+
+#navigation{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    button{
+        background: none;
+        border: none;
+        text-align: left;
+        padding: 0.5rem;
+        font-kerning: none;
+        font-size: 1em;
+        transition: background-color 0.5s ease;
+    }
+
+    button:hover {
+        background-color: #ffffff;
+        transition: none;
+    }
+
+    button:active {
+        transition: none;
+        background-color: #7f8e93;
+    }
+
+    .active{
+            background:#a6cced;
+            font-weight:bold;
+        }
+}
+
+#content {
+    position: absolute;
+    left: 12em;
+    height: 100%;
+    float: right;
+    width: calc(100% - 12em); /* Width reduction pegged to sidebar width */
+}
+
+#status {
+    position: fixed;
+    bottom: 0;
+    height: 1rem;
+    width: 100%;
+    padding-top: 0.3rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    outline: 1px solid black;
+    z-index: 2;
+    background-color: black;
+    color: white;
+}

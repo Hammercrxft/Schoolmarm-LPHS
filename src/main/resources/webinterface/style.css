@@ -72,9 +72,9 @@ body{
 #content {
     position: absolute;
     left: 12em;
-    height: 100%;
+    height: calc(98% - 1em);
     float: right;
-    width: calc(100% - 12em); /* Width reduction pegged to sidebar width */
+    width: calc(99.5% - 12em); /* Width reduction pegged to sidebar width */
 }
 
 #status {
@@ -86,8 +86,26 @@ body{
     padding-bottom: 0.6rem;
     padding-left: 1em;
     padding-right: 1em;
-    outline: 1px solid black;
     z-index: 2;
     background-color: black;
+    outline: solid 1px black;
     color: white;
+}
+
+#working_area{
+    margin: 2%;
+    position: absolute;
+    width: 95.5%;
+    top: 4em;
+    display: flex;
+    flex-direction: row;
+
+    div{
+        width: 100%;
+        min-height: 75vh;
+    }
+}
+
+.main_color{
+    background-color: #c1f3ff;
 }

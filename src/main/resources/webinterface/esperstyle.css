@@ -1,3 +1,37 @@
 .invisible {
     opacity: 0;
 }
+
+.backdrop{
+    font-size: 4em;
+    padding: 0.1em 0.4em;
+    opacity: 10%;
+    font-kerning: none;
+    font-weight: 1600;
+    font-stretch: expanded;
+    font-style: italic;
+    text-align: right;
+    font-family: sans-serif;
+    z-index: -256;
+    user-select: none;
+}
+
+.small_padding{
+    padding: 0.33em;
+}
+
+.small_margin{
+    margin: 0.66em;
+}
+
+.rounded{
+    border-radius: 0.33em;
+}
+
+.outlined{
+    outline: 0.1em solid black;
+}
+
+.max_width{
+    width: 100%;
+}

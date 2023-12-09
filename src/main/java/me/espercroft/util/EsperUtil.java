@@ -34,4 +34,38 @@ public class EsperUtil {
 
         return parameters;
     }
+    public static Map<String, String> parseQueryString(String queryString) {
+        Map<String, String> queryParams = new HashMap<>();
+
+        // Split the query string into individual key-value pairs
+        String[] pairs = queryString.split("&");
+
+        // Process each key-value pair
+        for (String pair : pairs) {
+            // Split the pair into key and value
+            String[] keyValue = pair.split("=");
+
+            // Check if the pair is well-formed
+            if (keyValue.length == 2) {
+                // Decode the key and value (optional, depending on your use case)
+                String key = decodeUrlComponent(keyValue[0]);
+                String value = decodeUrlComponent(keyValue[1]);
+
+                // Put the key-value pair into the map
+                queryParams.put(key, value);
+            }
+        }
+
+        return queryParams;
+    }
+    // Optional: URL decode the components (depends on your use case)
+    public static String decodeUrlComponent(String component) {
+        try {
+            return java.net.URLDecoder.decode(component, "UTF-8");
+        } catch (java.io.UnsupportedEncodingException e) {
+            // Handle the exception, or throw it as needed
+            e.printStackTrace();
+            return component;
+        }
+    }
 }

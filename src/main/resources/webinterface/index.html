@@ -6,6 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="esperstyle.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+        <script>
+            var selectedContextId = 'btn_overview';
+
+            function changeContext(id, src) {
+                document.getElementById('content').src = src;
+                document.getElementById(selectedContextId).classList.remove("active");
+                selectedContextId = id;
+                document.getElementById(id).classList.add("active");
+            }
+        </script>
     </head>
     <body>
         <div id="main">
@@ -19,17 +30,17 @@
                     </div>
                 </div>
                 <div id="navigation">
-                    <button id="btn_overview" class="active">Overview</button>
-                    <button id="btn_masterlist">Student Indices</button>
-                    <button id="btn_overview">Transferees</button>
-                    <button id="btn_overview">Documents</button>
-                    <button id="btn_overview">Archives </button>
+                    <button id="btn_overview" onclick="changeContext('btn_overview', 'overview.html')" class="active">Overview</button>
+                    <button id="btn_masterlist" onclick="changeContext('btn_masterlist', 'masterlist.html')">Master List</button>
+                    <button id="btn_transferees" onclick="changeContext('btn_transferees', 'transferees.html')">Transferees</button>
+                    <button id="btn_documents" onclick="changeContext('btn_documents', 'documents.html')">Documents</button>
+                    <button id="btn_archives" onclick="changeContext('btn_archives', 'archives.html')">Archives </button>
                     <button id="btn_separator" disabled class="invisible">bug if you see me</button>
-                    <button id="btn_admin">Administrative</button>
-                    <button id="btn_masterlist">Configuration</button>
+                    <button id="btn_admin" onclick="changeContext('btn_admin', 'admin.html')">Administrative</button>
+                    <button id="btn_configuration" onclick="changeContext('btn_configuration', 'configuration.html')">Configuration</button>
                 </div>
             </div>
-            <div id="content"></div>
+            <iframe id="content" src="overview.html"></iframe>
         </div>
         <div id="status">
             Status

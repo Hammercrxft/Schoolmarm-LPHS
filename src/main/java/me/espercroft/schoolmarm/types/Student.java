@@ -20,7 +20,6 @@ public class Student {
 
     public final UUID uuid; //will act as unique discriminator system-wide (that includes the archive!)
     public final long lrn; //will act as unique identification in the master list
-    private SchoolYear schoolYear;
     private GivenName name;
     private Date dateOfBirth;
     private String homeAddress;
@@ -59,15 +58,6 @@ public class Student {
     public Student(long lrn, String uuid) {
         this.lrn = lrn;
         this.uuid = UUID.fromString(uuid);
-    }
-
-
-    public SchoolYear getSchoolYear() {
-        return schoolYear;
-    }
-
-    public void setSchoolYear(SchoolYear schoolYear) {
-        this.schoolYear = schoolYear;
     }
 
     public GivenName getName() {

@@ -47,7 +47,7 @@ public class HttpUserInterface {
             server.createContext("/"+resource, createHandlerFor(resource, marm));
         }
         server.createContext("/", new RootContextHandler(marm));
-        server.createContext("/item_fetch", new ItemFetchContextHandler(marm));
+        server.createContext("/item_fetch", new ItemFetchContextHandler(marm,server));
 
         server.start();
     }

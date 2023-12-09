@@ -2,7 +2,9 @@ package me.espercroft.schoolmarm;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import me.espercroft.schoolmarm.eventhandlers.HTMLGuiFetchHandler;
 import me.espercroft.schoolmarm.eventhandlers.HTMLGuiPostRequestHandler;
+import me.espercroft.schoolmarm.eventhandlers.MarmInitializationTasksHandler;
 import me.espercroft.util.HandlerAlreadyBoundException;
 
 public class AppLauncher {
@@ -13,6 +15,8 @@ public class AppLauncher {
     public static void main(String args[]) throws HandlerAlreadyBoundException, IOException, URISyntaxException {
         marm = new Schoolmarm();
         marm.getEventService().bind(new HTMLGuiPostRequestHandler());
+        marm.getEventService().bind(new HTMLGuiFetchHandler());
+        marm.getEventService().bind(new MarmInitializationTasksHandler());
         marm.initialize();
         
         ui = new HttpUserInterface(marm);

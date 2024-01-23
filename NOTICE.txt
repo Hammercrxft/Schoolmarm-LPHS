@@ -1,0 +1,28 @@
+Schoolmarm LPHS
+Copyright 2023 Schoolmarm for LPHS Team
+
+
+
+*----*
+Schoolmarm LPHS contains a binary copy of FlatLaf. 
+https://www.formdev.com/flatlaf/
+
+FlatLaf is licensed under the Apache 2.0 License.
+https://github.com/JFormDesigner/FlatLaf/blob/main/LICENSE 
+
+
+
+*----*
+Schoolmarm LPHS contains several binary copies of MigLayout.
+https://miglayout.com/
+
+MigLayout is said to be licensed under 'BSD' or 'GPL'.
+
+
+
+*----*
+Schoolmarm LPHS contains a binary copy of a certain
+'Swing Crazy Panel'.
+
+Schoolmarm for LPHS Team does not claim the ownership
+and development of the 'Swing Crazy Panel' component.

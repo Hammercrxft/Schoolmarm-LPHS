@@ -36,8 +36,10 @@ public class HttpUserInterface {
 
         //create context handler for each file listed in accessible_resources.txt
         Scanner scn = new Scanner(new File(marm.getClass().getResource("/webinterface/accessible_resources.txt").toURI()));
+        System.out.println(scn);
         while (scn.hasNextLine()) {
-            String resource = scn.next();
+            String resource = scn.nextLine();
+            if (resource == null || resource.isBlank()){continue;}
             server.createContext("/" + resource, createHandlerFor(resource, marm));
         }
         server.createContext("/", new RootContextHandler(marm));
